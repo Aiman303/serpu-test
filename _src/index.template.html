@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serpuru — поймите своё лекарство с одного фото</title>
+<meta name="description" content="Справочник лекарств Кыргызстана с помощником Серпу. Сфотографируйте упаковку или введите название: найдём препарат в реестре Минздрава КР, объясним главное и покажем аналоги.">
+<meta name="theme-color" content="#7b2fd6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Serpuru — поймите своё лекарство с одного фото">
+<meta property="og:description" content="Справочник лекарств Кыргызстана с помощником Серпу.">
+<meta property="og:image" content="img/serpu/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/app.css">
+<script>try{var t=localStorage.getItem('serpuru-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+
+<!-- иконки -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3M7 12h10"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-pill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="19" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="M8.5 8.5l7 7"/></symbol>
+    <symbol id="i-kit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8 7V5.5A2.5 2.5 0 0 1 10.5 3h3A2.5 2.5 0 0 1 16 5.5V7M12 10.5v6M9 13.5h6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 16l.7 1.8 1.8.7-1.8.7L19 21l-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path fill="currentColor" d="M12.2 22c-4.3 0-7.2-2.8-7.2-6.6 0-3.3 2.1-5.3 3.6-7.6.4 1.8 1.4 2.9 2.7 3.3.3-3.4 1.7-6.3 4.1-8.1.4 3.3 3.6 5.6 3.6 10.9 0 4.8-2.8 8.1-6.8 8.1z"/><path fill="#ffd36b" d="M12.3 21c-1.9 0-3.2-1.2-3.2-3 0-1.9 1.4-2.8 2.2-4.3.3 1.1 1 1.7 1.8 1.9.3-1.4.9-2.4 1.8-3.1.3 1.5 1.5 2.6 1.5 4.9 0 2.1-1.6 3.6-4.1 3.6z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-thermo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/><path d="M12 11v6"/></symbol>
+    <symbol id="i-flower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><path d="M12 9.5c-2-3-1-6.5 0-6.5s2 3.5 0 6.5zM12 14.5c2 3 1 6.5 0 6.5s-2-3.5 0-6.5zM9.5 12c-3-2-6.5-1-6.5 0s3.5 2 6.5 0zM14.5 12c3 2 6.5 1 6.5 0s-3.5-2-6.5 0z"/></symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h11a3 3 0 1 0-3-3M3 15h14a3 3 0 1 1-3 3M3 12h7"/></symbol>
+    <symbol id="i-bowl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11h17a8.5 8.5 0 0 1-17 0z"/><path d="M9 7.5c0-1.5 1-1.5 1-3M14 7.5c0-1.5 1-1.5 1-3"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10.2A4.1 4.1 0 0 1 12 7.4a4.1 4.1 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20z"/><path d="M6 12h3l1.5-2 2 4 1.5-2h4"/></symbol>
+    <symbol id="i-bandage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="8" width="21" height="8" rx="4" transform="rotate(-45 12 12)"/><path d="M10 10h.01M14 14h.01M12 12h.01M10 14h.01M14 10h.01"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line class="l1" x1="4" y1="7" x2="20" y2="7"/><line class="l2" x1="4" y1="12" x2="20" y2="12"/><line class="l3" x1="4" y1="17" x2="20" y2="17"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 16l4-4-4-4M14 12H4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+    <symbol id="i-google" viewBox="0 0 18 18"><path fill="#EA4335" d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z"/><path fill="#4285F4" d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z"/><path fill="#FBBC05" d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9 9 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z"/></symbol>
+    <symbol id="i-telegram" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2AABEE"/><path fill="#fff" d="M5.6 11.7l11.1-4.3c.5-.2 1 .1.8.9l-1.9 8.9c-.1.6-.5.8-1 .5l-2.8-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-2.9 5.2-4.7c.2-.2 0-.3-.3-.1l-6.5 4.1-2.8-.9c-.6-.2-.6-.6.1-.9z"/></symbol>
+  </defs>
+</svg>
+
+<header>
+  <nav class="nav" aria-label="Главная навигация">
+    <a class="logo" href="#" data-route-link=""><img src="img/serpu/logo-64.png" alt="" width="32" height="32">Serpuru</a>
+    <div class="nav-links">
+      <a href="#search" data-route-link="search">Поиск</a>
+      <a href="#scan" data-route-link="scan">Сканировать</a>
+      <a href="#ask" data-route-link="ask">Самочувствие</a>
+      <a href="#me" data-route-link="me">Аптечка</a>
+    </div>
+    <div class="nav-actions">
+      <a class="icon-btn m-only" href="#scan" aria-label="Сканировать упаковку"><svg><use href="#i-scan"/></svg></a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Сменить тему"><svg><use href="#i-moon"/></svg></button>
+      <a class="btn btn-primary btn-sm" href="#login" data-account-btn><svg><use href="#i-user"/></svg><span class="nav-login-label" data-account-label>Войти</span></a>
+      <button class="icon-btn nav-menu" type="button" aria-label="Меню" aria-expanded="false" aria-controls="m-panel"><svg class="menu-icon"><use href="#i-menu"/></svg></button>
+    </div>
+  </nav>
+  <div class="mobile-panel" id="m-panel" aria-hidden="true">
+    <a class="m-link" href="#"><svg><use href="#i-sparkle"/></svg>Главная</a>
+    <a class="m-link" href="#search"><svg><use href="#i-search"/></svg>Поиск лекарства</a>
+    <a class="m-link" href="#scan"><svg><use href="#i-scan"/></svg>Сканировать</a>
+    <a class="m-link" href="#ask"><svg><use href="#i-chat"/></svg>Самочувствие</a>
+    <a class="m-link" href="#me"><svg><use href="#i-kit"/></svg>Моя аптечка</a>
+    <a class="m-link" href="#login" data-account-mlink><svg><use href="#i-user"/></svg>Войти</a>
+    <div class="m-foot"><button class="btn btn-ghost btn-block" type="button" data-download><svg><use href="#i-download"/></svg>Скачать Серпу</button></div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ГЛАВНАЯ -->
+<div class="view" data-view="home">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="text-col stack-24">
+        <span class="badge accent m-only" data-greet>Добрый день</span>
+        <span class="caption-3 eyebrow d-only">Справочник лекарств Кыргызстана</span>
+        <h1 class="heading-1">Поймите своё лекарство<br>с&nbsp;одного фото</h1>
+        <p class="lead-m m-only">Покажите упаковку: Серпу найдёт её в&nbsp;реестре Минздрава КР и&nbsp;объяснит главное.</p>
+        <p class="lead">Сфотографируйте упаковку или введите название. Серпу найдёт препарат в&nbsp;реестре Минздрава КР, объяснит главное простыми словами и&nbsp;покажет аналоги.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#scan"><svg><use href="#i-scan"/></svg>Сканировать упаковку</a>
+          <form class="searchbar" role="search" data-search-form>
+            <svg><use href="#i-search"/></svg>
+            <input type="search" name="q" placeholder="Например, парацетамол" aria-label="Название лекарства" autocomplete="off">
+          </form>
+        </div>
+        <div class="proof">
+          <div class="dots"><span><svg><use href="#i-pill"/></svg></span><span><svg><use href="#i-shield"/></svg></span><span><svg><use href="#i-sparkle"/></svg></span></div>
+          <span><b data-count>9 903</b> лекарства из&nbsp;государственного реестра Минздрава КР</span>
+        </div>
+        <button class="hero-download m-only" type="button" data-download><svg><use href="#i-download"/></svg>Скачать Серпу</button>
+      </div>
+      <div class="stage-wrap">
+        <div id="stage" role="img" aria-label="Серпу, фиолетовый змей-помощник. Нажмите на него.">
+<!--RIG-->
+          <div class="ice"></div><div id="fx"></div>
+        </div>
+        <div class="bubble" data-bubble>Привет! Я&nbsp;Серпу. Покажи мне упаковку</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" aria-label="Совет дня">
+    <div class="today reveal">
+      <div class="card tip">
+        <img src="img/serpu/thinking.webp" alt="" data-tip-img loading="lazy">
+        <div class="stack-8">
+          <span class="caption-3 eyebrow">Совет дня от Серпу</span>
+          <p class="title-2" data-tip>Храните лекарства не в ванной: от влаги и тепла они портятся быстрее.</p>
+        </div>
+      </div>
+      <a class="card stack-8" href="#me" style="color:inherit;text-decoration:none" data-kit-card>
+        <span class="streak caption-3"><svg><use href="#i-flame"/></svg><span data-streak>Первый день с Серпу</span></span>
+        <p class="title-3" data-kit-summary>Соберите свою аптечку: Серпу напомнит, когда у лекарства закончится срок годности.</p>
+        <span class="caption-1" style="color:var(--accent-text)">Открыть аптечку →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section wrap" id="shelves" aria-labelledby="shelves-title">
+    <div class="stack-8 reveal">
+      <span class="caption-3 eyebrow">Витрины</span>
+      <h2 class="heading-3" id="shelves-title">Подборки из реестра</h2>
+      <p class="muted" style="max-width:680px">Лекарства, которые чаще всего ищут по этим поводам. Это справка, а не рекомендация купить: выбирайте вместе с врачом или фармацевтом.</p>
+    </div>
+    <div class="chips scroll" style="margin:24px 0 32px" data-shelf-chips></div>
+    <div data-shelves>
+      <div class="rail"><div class="sk sk-card"></div><div class="sk sk-card"></div><div class="sk sk-card"></div><div class="sk sk-card"></div><div class="sk sk-card"></div></div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="how-title" style="padding-top:0">
+    <div class="stack-8 reveal">
+      <span class="caption-3 eyebrow">Как это работает</span>
+      <h2 class="heading-3" id="how-title">Три шага до понятного ответа</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="num">1</div><img src="img/serpu/hi.webp" alt="" loading="lazy"><h3 class="title-1">Покажите упаковку</h3><p class="muted" style="margin-top:8px">Сфотографируйте коробку или введите название. Подойдёт и&nbsp;фото из галереи.</p></div>
+      <div class="step reveal"><div class="num">2</div><img src="img/serpu/thinking.webp" alt="" loading="lazy"><h3 class="title-1">Серпу найдёт препарат</h3><p class="muted" style="margin-top:8px">Сверим название, штрихкод и&nbsp;действующее вещество с&nbsp;реестром Минздрава КР.</p></div>
+      <div class="step reveal"><div class="num">3</div><img src="img/serpu/doctor.webp" alt="" loading="lazy"><h3 class="title-1">Спросите о главном</h3><p class="muted" style="margin-top:8px">Как принимать, можно ли с&nbsp;алкоголем, какие есть аналоги и&nbsp;примерная цена.</p></div>
+    </div>
+  </section>
+
+  <section class="section wrap" style="padding-top:0" aria-labelledby="feel-title">
+    <div class="feel reveal">
+      <img src="img/serpu/sick.webp" alt="" loading="lazy">
+      <div class="stack-16">
+        <h2 class="heading-4" id="feel-title">Плохо себя чувствуете?</h2>
+        <p class="muted">Расскажите Серпу, что беспокоит. Он подскажет безопасные шаги и&nbsp;признаки, при которых нужно к&nbsp;врачу. Диагнозов Серпу не ставит.</p>
+        <div class="row"><a class="btn btn-primary" href="#ask"><svg><use href="#i-chat"/></svg>Рассказать Серпу</a><span class="caption-1 muted">Если плохо прямо сейчас: 103 или 112</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-label="Наш принцип">
+    <p class="tagline heading-2" data-tagline>Лекарство перестаёт пугать, когда рядом есть тот, кто спокойно всё объяснит.</p>
+  </section>
+
+  <section class="section wrap" style="padding-top:0" aria-labelledby="app-title">
+    <div class="app-cta reveal">
+      <div class="stack-16">
+        <span class="caption-3" style="opacity:.85">Приложение Серпу</span>
+        <h2 class="heading-3" id="app-title">Серпу в телефоне напомнит о таблетках и позовёт родных</h2>
+        <p class="muted">Напоминания с будильником, серия без пропусков и&nbsp;семейный режим: близкие узнают, если приём пропущен. Приложение уже в&nbsp;пути.</p>
+        <div class="row"><button class="btn btn-light" type="button" data-download><svg><use href="#i-download"/></svg>Скачать Серпу</button><span class="caption-1 muted">Пока — портрет Серпу на&nbsp;память</span></div>
+      </div>
+      <div class="stickers"><img src="img/serpu/pill.webp" alt="Серпу с таблеткой" loading="lazy"><img src="img/serpu/party.webp" alt="Серпу празднует" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="section wrap" style="padding-top:0" aria-labelledby="faq-title">
+    <div class="stack-8 reveal" style="text-align:center">
+      <span class="caption-3 eyebrow">Вопросы</span>
+      <h2 class="heading-3" id="faq-title">Частые вопросы</h2>
+    </div>
+    <div class="faq" data-faq></div>
+    <div class="row reveal" style="justify-content:center;margin-top:40px">
+      <a class="btn btn-primary btn-lg" href="#scan"><svg><use href="#i-scan"/></svg>Сканировать упаковку</a>
+    </div>
+  </section>
+</div>
+
+<!-- ПОИСК -->
+<div class="view" data-view="search">
+  <div class="wrap">
+    <div class="page-head">
+      <h1 class="heading-3">Поиск лекарства</h1>
+      <form class="searchbar" role="search" data-search-form="page">
+        <svg><use href="#i-search"/></svg>
+        <input type="search" name="q" id="q-page" placeholder="Название, действующее вещество или штрихкод" aria-label="Что ищем" autocomplete="off">
+        <a class="btn btn-soft btn-sm" href="#scan" aria-label="Сканировать"><svg><use href="#i-camera"/></svg><span class="d-only">Фото</span></a>
+      </form>
+      <div class="chips scroll" data-filters></div>
+      <p class="caption-1 muted" data-search-meta aria-live="polite"></p>
+    </div>
+    <div class="results" data-results></div>
+    <div class="row" style="justify-content:center;margin-top:24px"><button class="btn btn-ghost" type="button" data-more hidden>Показать ещё</button></div>
+  </div>
+</div>
+
+<!-- КАРТОЧКА -->
+<div class="view" data-view="drug"><div class="wrap" data-drug></div></div>
+
+<!-- СКАН -->
+<div class="view" data-view="scan">
+  <div class="wrap">
+    <div class="page-head">
+      <h1 class="heading-3">Сканировать упаковку</h1>
+      <p class="muted" style="max-width:680px">Сфотографируйте коробку так, чтобы было видно название, или штрихкод. Серпу сверит его с&nbsp;реестром Минздрава КР.</p>
+    </div>
+    <div class="scan-box">
+      <div class="stack-16">
+        <label class="drop" data-drop>
+          <input type="file" accept="image/*" capture="environment" class="sr-only" data-file>
+          <img src="img/serpu/hi.webp" alt="" loading="lazy">
+          <span class="title-1">Сделать фото или выбрать из галереи</span>
+          <span class="btn btn-primary"><svg><use href="#i-camera"/></svg>Открыть камеру</span>
+          <span class="caption-1 muted">Можно перетащить фото сюда</span>
+        </label>
+        <div class="note"><svg><use href="#i-shield"/></svg><span>Снимайте только упаковку: без рецептов, документов и&nbsp;лиц. Фото нужно Серпу только для чтения названия, мы его не храним.</span></div>
+      </div>
+      <div data-scan-out>
+        <div class="card-soft stack-16">
+          <h2 class="title-1">Как сделать хорошее фото</h2>
+          <ul class="list-check">
+            <li><svg><use href="#i-check"/></svg><span>Название крупно и&nbsp;в&nbsp;фокусе</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Хороший свет, без бликов от плёнки</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Штрихкод целиком, если снимаете его</span></li>
+          </ul>
+          <p class="caption-1 muted">Нет упаковки под рукой? <a href="#search">Найдите по названию</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- САМОЧУВСТВИЕ -->
+<div class="view" data-view="ask">
+  <div class="wrap" style="max-width:860px">
+    <div class="page-head">
+      <h1 class="heading-3">Как вы себя чувствуете?</h1>
+      <p class="muted">Опишите своими словами, что беспокоит, сколько длится и&nbsp;кому плохо: взрослому, ребёнку или пожилому человеку. Серпу подскажет безопасные шаги. Диагнозов он не ставит.</p>
+      <div class="note danger"><svg><use href="#i-phone"/></svg><span><b>Если плохо прямо сейчас</b>: боль в груди, трудно дышать, слабость в руке или ноге, спутанная речь — звоните <b>103</b> или <b>112</b>.</span></div>
+    </div>
+    <form class="feel-form" data-feel-form novalidate>
+      <label for="feel-text" class="title-3">Что беспокоит</label>
+      <textarea class="field" id="feel-text" name="text" maxlength="800" placeholder="Например: у меня второй день температура 37,8 и болит горло"></textarea>
+      <div class="chips" data-feel-chips></div>
+      <p class="field-error" data-feel-error role="alert"></p>
+      <div class="row"><button class="btn btn-primary" type="submit"><svg><use href="#i-sparkle"/></svg>Спросить Серпу</button><span class="caption-1 muted">Ответ — справка, а не лечение</span></div>
+    </form>
+    <div data-feel-out style="margin-top:32px"></div>
+  </div>
+</div>
+
+<!-- ВХОД -->
+<div class="view" data-view="login">
+  <div class="wrap auth">
+    <div class="card stack-24">
+      <div class="stack-8" style="text-align:center">
+        <img src="img/serpu/hi.webp" alt="" style="width:96px;height:96px;margin:0 auto" loading="lazy">
+        <h1 class="heading-5">Войти в Serpuru</h1>
+        <p class="muted body-6">Аккаунт сохранит аптечку и&nbsp;историю на&nbsp;всех устройствах и&nbsp;в&nbsp;приложении.</p>
+      </div>
+      <div class="stack-8">
+        <button class="btn btn-social btn-block" type="button" data-oauth="google"><svg><use href="#i-google"/></svg>Продолжить с Google</button>
+        <button class="btn btn-social btn-block" type="button" data-oauth="telegram"><svg><use href="#i-telegram"/></svg>Войти через Telegram</button>
+      </div>
+      <div class="divider">или по почте</div>
+      <form class="stack-16" data-email-form novalidate>
+        <div>
+          <label for="auth-email" class="title-4">Почта</label>
+          <input class="field" id="auth-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" style="margin-top:8px">
+        </div>
+        <div data-otp-wrap hidden>
+          <label for="auth-code" class="title-4">Код из письма</label>
+          <input class="field otp" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="••••••" style="margin-top:8px">
+          <p class="caption-1 muted" style="margin-top:8px">Письмо придёт в течение минуты. Проверьте папку «Спам».</p>
+        </div>
+        <p class="field-error" data-auth-error role="alert"></p>
+        <button class="btn btn-primary btn-block" type="submit" data-email-submit><svg><use href="#i-mail"/></svg><span>Получить код</span></button>
+      </form>
+      <p class="caption-5 muted" style="text-align:center">Продолжая, вы соглашаетесь с&nbsp;<a href="#terms">условиями</a> и&nbsp;<a href="#privacy">политикой конфиденциальности</a>. <a href="#">Продолжить без входа</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- АПТЕЧКА -->
+<div class="view" data-view="me">
+  <div class="wrap" style="max-width:900px">
+    <div class="page-head">
+      <div class="row" style="justify-content:space-between">
+        <h1 class="heading-3">Моя аптечка</h1>
+        <a class="btn btn-soft btn-sm" href="#search"><svg><use href="#i-plus"/></svg>Добавить</a>
+      </div>
+      <div data-account-box></div>
+    </div>
+    <div class="kit" data-kit></div>
+    <div data-recent style="margin-top:40px"></div>
+  </div>
+</div>
+
+<!-- ПОЛИТИКА -->
+<div class="view" data-view="privacy">
+  <div class="wrap legal stack-16">
+    <button class="back" type="button" data-back><svg><use href="#i-left"/></svg>Назад</button>
+    <h1 class="heading-3">Политика конфиденциальности</h1>
+    <p class="caption-1 faint">Редакция от 7 ноября 2026 года</p>
+    <p>Serpuru — информационно-справочный сервис о лекарствах. Владельцы сервиса: <span data-owners></span>. Связь: <span data-email></span>.</p>
+    <h2 class="heading-6">Какие данные мы получаем</h2>
+    <ul>
+      <li>Почту — если вы входите по почте, через Google или Telegram. Из Google и Telegram мы получаем только имя, почту или аватар, которые вы разрешили передать.</li>
+      <li>Содержимое «Моей аптечки»: названия лекарств и сроки годности, которые вы сами добавили.</li>
+      <li>Фото упаковки и текст вопросов к Серпу. Мы передаём их в Google Gemini, чтобы прочитать упаковку и подготовить ответ, и не храним фото у себя. Готовые ответы про препараты мы можем сохранять без привязки к вам, чтобы быстрее отвечать другим.</li>
+      <li>Технические данные: для суточных лимитов мы храним хэш IP-адреса, по которому вас нельзя узнать.</li>
+    </ul>
+    <h2 class="heading-6">Чего мы не делаем</h2>
+    <ul>
+      <li>Не просим диагнозы, документы, номер телефона и паспортные данные.</li>
+      <li>Не продаём данные и не показываем их рекламодателям.</li>
+    </ul>
+    <h2 class="heading-6">Где хранятся данные</h2>
+    <p>Данные аккаунта хранятся в Supabase на серверах в Японии (регион Токио). Если вы не входите в аккаунт, аптечка хранится только в вашем браузере.</p>
+    <h2 class="heading-6">Ваши права</h2>
+    <p>Вы можете в любой момент попросить показать или удалить ваши данные, написав на <span data-email></span>. Аккаунт удаляется вместе с аптечкой.</p>
+    <h2 class="heading-6">Важно</h2>
+    <p>Пожалуйста, не фотографируйте рецепты и документы с личными данными. Для поиска лекарства хватает упаковки.</p>
+  </div>
+</div>
+
+<!-- УСЛОВИЯ -->
+<div class="view" data-view="terms">
+  <div class="wrap legal stack-16">
+    <button class="back" type="button" data-back><svg><use href="#i-left"/></svg>Назад</button>
+    <h1 class="heading-3">Условия использования</h1>
+    <p class="caption-1 faint">Редакция от 7 ноября 2026 года</p>
+    <h2 class="heading-6">Что такое Serpuru</h2>
+    <p>Serpuru — информационно-справочный чек-лист о лекарствах, зарегистрированных в Кыргызской Республике. Сервис не является медицинской организацией и не оказывает медицинских услуг.</p>
+    <h2 class="heading-6">Чего Serpuru не делает</h2>
+    <ul>
+      <li>Не ставит диагнозов и не назначает лечение.</li>
+      <li>Не называет дозировки и не советует отменять или менять назначенное врачом лечение.</li>
+      <li>Не подбирает замену: аналоги показаны для справки, замену согласуйте с врачом или фармацевтом.</li>
+    </ul>
+    <h2 class="heading-6">Откуда данные</h2>
+    <p>Сведения о препаратах взяты из государственного реестра лекарственных средств и каталога предельных цен Министерства здравоохранения КР. Они могли измениться: сверяйтесь с упаковкой и инструкцией. Цены ориентировочные: в аптеке может быть дешевле или дороже.</p>
+    <h2 class="heading-6">Ответы Серпу</h2>
+    <p>Ответы готовит искусственный интеллект на основе общеизвестных сведений. Они могут быть неточными. Перед приёмом любого лекарства читайте инструкцию и советуйтесь с врачом или фармацевтом.</p>
+    <h2 class="heading-6">Экстренные случаи</h2>
+    <p>Если состояние резко ухудшилось, звоните 103 или 112. Serpuru не предназначен для экстренной помощи.</p>
+    <h2 class="heading-6">Контакты</h2>
+    <p>Владельцы: <span data-owners></span>. Почта: <span data-email></span>.</p>
+  </div>
+</div>
+
+<!-- 404 -->
+<div class="view" data-view="notfound">
+  <div class="wrap empty-state">
+    <img src="img/serpu/surprised.webp" alt="" loading="lazy">
+    <h1 class="heading-4">Серпу не нашёл эту страницу</h1>
+    <p class="muted">Возможно, ссылка устарела. Давайте начнём с главной.</p>
+    <a class="btn btn-primary" href="#"><svg><use href="#i-left"/></svg>На главную</a>
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div class="stack-16">
+      <a class="logo" href="#"><img src="img/serpu/logo-64.png" alt="" width="32" height="32">Serpuru</a>
+      <p class="body-6 muted" style="max-width:420px">Информационно-справочный сервис о лекарствах. Не заменяет консультацию врача. Сколько и как принимать — по инструкции или как назначил врач.</p>
+      <p class="caption-1 muted">Экстренная помощь: <b>103</b> или <b>112</b></p>
+    </div>
+    <div class="stack-8">
+      <span class="caption-3 faint">Сервис</span>
+      <div class="links" style="flex-direction:column">
+        <a href="#search">Поиск лекарства</a><a href="#scan">Сканировать упаковку</a><a href="#ask">Самочувствие</a><a href="#me">Моя аптечка</a>
+      </div>
+    </div>
+    <div class="stack-8">
+      <span class="caption-3 faint">О нас</span>
+      <div class="links" style="flex-direction:column">
+        <a href="#privacy">Политика конфиденциальности</a><a href="#terms">Условия использования</a><span class="muted body-6" data-email></span>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:32px">
+    <p class="caption-5 faint">© 2026 Serpuru. Владельцы: <span data-owners></span>. Данные о препаратах: государственный реестр лекарственных средств и каталог предельных цен Минздрава КР.</p>
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite" data-toast><img src="img/serpu/happy.webp" alt=""><span data-toast-text></span></div>
+
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+<script src="js/rig.js"></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>

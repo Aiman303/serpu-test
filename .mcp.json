@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "dart": {
+      "command": "/home/vkusny/development/flutter/bin/dart",
+      "args": ["mcp-server", "--force-roots-fallback"],
+      "env": {
+        "JAVA_HOME": "/home/vkusny/development/jdk-17",
+        "ANDROID_HOME": "/home/vkusny/Android/Sdk",
+        "PATH": "/home/vkusny/development/flutter/bin:/home/vkusny/Android/Sdk/platform-tools:/home/vkusny/Android/Sdk/emulator:/usr/local/bin:/usr/bin:/bin"
+      }
+    },
+    "mobile": {
+      "command": "npx",
+      "args": ["-y", "@mobilenext/mobile-mcp@1.0.16"],
+      "env": {
+        "ANDROID_HOME": "/home/vkusny/Android/Sdk",
+        "PATH": "/home/vkusny/Android/Sdk/platform-tools:/usr/local/bin:/usr/bin:/bin"
+      }
+    }
+  }
+}

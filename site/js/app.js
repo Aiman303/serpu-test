@@ -841,9 +841,11 @@
       m.setIcon(pinIcon(p, true));
       if (fly) {
         // Сначала долетаем, потом открываем подсказку: иначе автосдвиг попапа спорит с анимацией.
-        ph.map.closePopup();
-        ph.map.once("moveend", () => m.openPopup());
-        ph.map.flyTo([p.lat, p.lon], Math.max(ph.map.getZoom(), 16), { duration: 0.6 });
+        if (ph.map) {
+          ph.map.closePopup();
+          ph.map.once("moveend", () => m.openPopup());
+          ph.map.flyTo([p.lat, p.lon], Math.max(ph.map.getZoom(), 16), { duration: 0.6 });
+        }
         // На телефоне карта над списком — показываем её.
         if (innerWidth < 900) { const box = $("[data-pharm-map]"); window.scrollTo({ top: box.getBoundingClientRect().top + scrollY - 88, behavior: "smooth" }); }
       } else m.openPopup();
@@ -919,8 +921,14 @@
   drop.addEventListener("drop", (e) => { const f = e.dataTransfer?.files?.[0]; if (f) handleFile(f); });
 
   const steps = (n) => `<div class="progress-steps">${["Ищу штрихкод", "Читаю упаковку", "Сверяю с реестром"].map((t, i) => `<div class="ps ${i < n ? "done" : i === n ? "on" : ""}">${icon(i < n ? "check" : "sparkle")}${t}</div>`).join("")}</div>`;
+  let lastScanUrl = null;
   async function loadImage(file) {
+    if (lastScanUrl) {
+      try { URL.revokeObjectURL(lastScanUrl); } catch (_) {}
+      lastScanUrl = null;
+    }
     const url = URL.createObjectURL(file);
+    lastScanUrl = url;
     const img = new Image();
     // onload надёжнее decode(): decode() может «зависнуть» во вкладке в фоне
     await new Promise((ok, fail) => { img.onload = ok; img.onerror = fail; img.src = url; if (img.complete && img.naturalWidth) ok(); });
@@ -951,6 +959,11 @@
     } catch { return []; }
   }
   async function handleFile(file) {
+    if (!file) return;
+    if (file.size > 25 * 1024 * 1024) {
+      scanOut.innerHTML = `<div class="note warn">${icon("alert")}<span>Файл слишком большой (максимум 25 МБ). Пожалуйста, выберите фото меньшего размера.</span></div>`;
+      return;
+    }
     if (!/^image\//.test(file.type)) { scanOut.innerHTML = `<div class="note warn">${icon("alert")}<span>Это не похоже на фото. Выберите картинку JPG или PNG.</span></div>`; return; }
     let loaded;
     try { loaded = await loadImage(file); } catch { scanOut.innerHTML = `<div class="note warn">${icon("alert")}<span>Не получилось открыть фото. Попробуйте другое.</span></div>`; return; }
@@ -1192,7 +1205,12 @@
       return;
     }
 
-    const h = decodeURIComponent(rawHash.slice(1));
+    let h;
+    try {
+      h = decodeURIComponent(rawHash.slice(1));
+    } catch (_) {
+      h = rawHash.slice(1);
+    }
     setMenu(false);
     if (h === "main") { $("#main").focus(); return; }
     if (!h) return show("home");

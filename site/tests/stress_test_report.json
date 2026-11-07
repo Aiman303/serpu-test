@@ -1,0 +1,249 @@
+{
+  "startTime": "2026-11-07T15:35:19.549Z",
+  "suites": [
+    {
+      "name": "Router & State",
+      "tests": [
+        {
+          "name": "Rapid switching of 120 hashes",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "Fallback to notfound on invalid hash (#invalid-random-slug-987)",
+          "status": "PASS",
+          "details": "Actual view: notfound"
+        },
+        {
+          "name": "Out-of-bounds drug ID fallback to notfound (#drug-999999)",
+          "status": "PASS",
+          "details": "Actual view: notfound"
+        },
+        {
+          "name": "OAuth access_token callback navigates to login",
+          "status": "PASS",
+          "details": "View: login"
+        },
+        {
+          "name": "OAuth error_description is displayed to user",
+          "status": "WARN",
+          "details": "authErr text is empty; error is swallowed in UI"
+        },
+        {
+          "name": "Malformed URI hash error resistance (#%E0%A4%A)",
+          "status": "FAIL",
+          "details": "Uncaught URIError: URI malformed\n    at decodeURIComponent (<anonymous>)\n    at route (http://127.0.0.1:8877/js/app.js:1195:15)"
+        },
+        {
+          "name": "Leaflet lazy loading (window.L)",
+          "status": "PASS",
+          "details": "Leaflet loaded on demand"
+        },
+        {
+          "name": "No duplicate Leaflet script injection on repeated visits",
+          "status": "PASS",
+          "details": "Scripts grew from 7 to 7"
+        }
+      ]
+    },
+    {
+      "name": "Forms & Validation",
+      "tests": [
+        {
+          "name": "Invalid email formats properly rejected by regex",
+          "status": "PASS",
+          "details": ""
+        },
+        {
+          "name": "Valid email format recognized",
+          "status": "PASS",
+          "details": "Result was: true"
+        },
+        {
+          "name": "OTP letters stripped via regex",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "OTP code length check (< 6 rejected)",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "OTP field maxlength consistency check",
+          "status": "WARN",
+          "details": "HTML specifies maxlength=\"8\", but app.js line 1092 auto-submits at 6 digits"
+        },
+        {
+          "name": "File selection cancellation handled gracefully (no error)",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "Non-image MIME types rejected",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "Scanned photo Blob URLs memory reclamation",
+          "status": "WARN",
+          "details": "URL.revokeObjectURL is never invoked"
+        },
+        {
+          "name": "Client-side image file size limit validation",
+          "status": "WARN",
+          "details": "No file size check before loading into memory"
+        }
+      ]
+    },
+    {
+      "name": "Pharmacy Map",
+      "tests": [
+        {
+          "name": "Pharmacies list rendered (first page slice)",
+          "status": "PASS",
+          "details": "Rendered: 60"
+        },
+        {
+          "name": "Filter '24/7' switching",
+          "status": "PASS",
+          "details": "24/7 count: 60"
+        },
+        {
+          "name": "Filter 'Сетевые' switching",
+          "status": "PASS",
+          "details": "Named count: 60"
+        },
+        {
+          "name": "Filter 'Все' restore",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "Street search filter ('Киевская')",
+          "status": "PASS",
+          "details": "Найдено: 10 аптек"
+        },
+        {
+          "name": "2GIS route URL structure valid",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "Google Maps route URL structure valid",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "Yandex Maps route URL structure valid",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "selectPharm null safety when map is uninitialized",
+          "status": "WARN",
+          "details": "Unchecked ph.map.closePopup()"
+        }
+      ]
+    },
+    {
+      "name": "Accessibility & Theming",
+      "tests": [
+        {
+          "name": "All 4 theme modes (light/dark × fx on/off) toggle correctly",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "Theme toggle icon syncs (#i-sun in dark, #i-moon in light)",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "A11y visually impaired toggle and localStorage persistence",
+          "status": "PASS",
+          "details": null
+        },
+        {
+          "name": "A11y CSS zoom applied to body (1.25x)",
+          "status": "PASS",
+          "details": null
+        }
+      ]
+    },
+    {
+      "name": "Algorithms & Data",
+      "tests": [
+        {
+          "name": "1,000 search queries over 7,487 drugs registry",
+          "status": "PASS",
+          "details": null
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 31,
+    "passed": 25,
+    "failed": 1,
+    "warnings": 5
+  },
+  "bugs": [
+    {
+      "id": 2,
+      "title": "OAuth callback errors are silently swallowed in UI",
+      "severity": "MEDIUM",
+      "description": "When OAuth returns `#error=...&error_description=...`, the router recognizes `error_description=` and calls `show('login')`, but never parses the error or displays it in `[data-auth-error]`. The user sees the plain login form with no feedback why OAuth failed.",
+      "reproduction": "location.hash = '#error=access_denied&error_code=403&error_description=User+cancelled'"
+    },
+    {
+      "id": 1,
+      "title": "Uncaught URIError in hash routing with malformed URI encoding",
+      "severity": "HIGH",
+      "description": "In js/app.js (line 1195): `const h = decodeURIComponent(rawHash.slice(1));` is executed without try-catch. When a malformed percentage-encoded hash like `#%E0%A4%A` is received, `decodeURIComponent` throws an unhandled `URIError: URI malformed`, completely breaking page navigation for subsequent hash changes.",
+      "reproduction": "location.hash = '#%E0%A4%A'"
+    },
+    {
+      "id": 3,
+      "title": "OTP input maxlength='8' conflicts with 6-digit auto-submit",
+      "severity": "LOW",
+      "description": "In index.html line 378: `<input class='field otp' id='auth-code' maxlength='8'>`. However, js/app.js line 1092 triggers `emailForm.requestSubmit()` as soon as `digits.length === 6`. If an 8-digit OTP is used or pasted, digits 7 and 8 are cut off by the instant auto-submit.",
+      "reproduction": "Type 8 digits in #auth-code; form submits prematurely at 6th digit."
+    },
+    {
+      "id": 4,
+      "title": "Memory leak in image scanner: URL.createObjectURL is never revoked",
+      "severity": "MEDIUM",
+      "description": "In js/app.js (line 923): `loadImage` calls `URL.createObjectURL(file)`, but `URL.revokeObjectURL(url)` is never called anywhere in the codebase. Every scanned image (including 10MB-50MB mobile photos) remains resident in browser memory for the entire session.",
+      "reproduction": "Scan multiple photos in succession; observe increasing blob memory allocations."
+    },
+    {
+      "id": 5,
+      "title": "Absence of client-side file size guard for photo uploads (50+ MB risk)",
+      "severity": "MEDIUM",
+      "description": "In js/app.js (lines 953-958): `handleFile` directly calls `loadImage(file)` and attempts canvas downscaling on any image size without a pre-flight file size check (e.g. `if (file.size > 25 * 1024 * 1024)`). On lower-end mobile devices, decoding high-resolution 50+ MB images can crash the browser tab (OOM).",
+      "reproduction": "Upload a 50MB image; browser allocates canvas without size warning."
+    },
+    {
+      "id": 6,
+      "title": "Uncaught TypeError when selecting pharmacy if Leaflet map fails to load",
+      "severity": "HIGH",
+      "description": "In js/app.js (line 844): In `selectPharm(i, fly = true)`: `ph.map.closePopup(); ph.map.once(...); ph.map.flyTo(...)` are executed without checking `if (ph.map)`. If Leaflet CDN is blocked, slow to load, or fails, clicking any pharmacy in the list throws `TypeError: Cannot read properties of null (reading 'closePopup')`.",
+      "reproduction": "Block https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js, navigate to #apteki, click any pharmacy in the list."
+    },
+    {
+      "id": 7,
+      "title": "Leaflet map marker click misalignment under CSS body zoom: 1.25",
+      "severity": "MEDIUM",
+      "description": "In css/app.css: `:root[data-a11y='on'] body { zoom: 1.25; }`. In WebKit/Blink browsers, CSS `zoom` applied to a parent of a Leaflet map container disrupts Leaflet's internal `mouseEventToContainerPoint` calculations, causing click targets, marker hits, and popup positioning to be offset by 25%.",
+      "reproduction": "Turn on A11y mode, open #apteki, click on map markers; note coordinate offset."
+    }
+  ],
+  "metrics": {
+    "routerSwitchAvgMs": "40.10",
+    "routerSwitchTotalMs": "4811.4",
+    "searchAvgQueryMs": "0.000",
+    "usedJSHeapSizeMB": "26.46"
+  },
+  "endTime": "2026-11-07T15:35:28.726Z"
+}

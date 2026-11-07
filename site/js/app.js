@@ -87,46 +87,47 @@
     if (r.form && r.form !== "Инъекции") s += 1;
     return s;
   }
+  // Подсказки по симптомам: ТОЛЬКО безрецептурные средства для справки.
+  // Темы, где нужен врач (давление, сердце, антибиотики, печень, мигрень), сюда не добавлять:
+  // Серпу не подбирает лечение. Ключ — начало слова («болит», «боль» → «бол»), не подстрока.
   const INDICATIONS = {
-    "грипп": ["парацетамол", "ибупрофен", "ацетилсалицил", "эргоферон", "ингавирин", "римантадин", "осельтамивир", "терафлю", "колдрекс", "антигриппин", "фервекс", "гриппостад"],
-    "простуд": ["парацетамол", "ибупрофен", "ацетилсалицил", "эргоферон", "терафлю", "колдрекс", "фервекс"],
-    "орви": ["парацетамол", "ибупрофен", "эргоферон", "ингавирин"],
-    "температур": ["парацетамол", "ибупрофен", "ацетилсалицил", "анальгин"],
-    "жар": ["парацетамол", "ибупрофен", "ацетилсалицил"],
-    "лихорад": ["парацетамол", "ибупрофен"],
-    "давлен": ["эналаприл", "каптоприл", "лозартан", "амлодипин", "бисопролол", "лизиноприл", "индапамид", "валсартан", "периндоприл"],
-    "гипертон": ["эналаприл", "каптоприл", "лозартан", "амлодипин", "бисопролол"],
-    "бол": ["цитрамон", "анальгин", "ибупрофен", "нурофен", "кетонал", "кеторол", "пенталгин", "спазмалгон", "но шпа", "дротаверин", "новиган"],
-    "голов": ["цитрамон", "анальгин", "ибупрофен", "нурофен", "пенталгин", "спазмалгон"],
-    "мигрен": ["цитрамон", "ибупрофен", "суматриптан", "пенталгин"],
-    "живот": ["но шпа", "дротаверин", "мезим", "панкреатин", "креон", "омепразол", "алмагель", "эспумизан", "смекта", "пробинекс"],
-    "желуд": ["омепразол", "алмагель", "де нол", "но шпа", "мезим", "ренни"],
-    "изжог": ["омепразол", "алмагель", "ренни", "маалокс", "пантопразол"],
-    "спазм": ["но шпа", "дротаверин", "спазмалгон"],
-    "пищевар": ["мезим", "панкреатин", "креон", "пробинекс", "линекс"],
-    "тошнот": ["церукал", "метоклопрамид", "мотилиум", "домперидон"],
-    "рвот": ["церукал", "метоклопрамид", "мотилиум"],
-    "аллерг": ["лоратадин", "супрастин", "цетиризин", "цетрин", "зодак", "диазолин", "дезлоратадин"],
-    "зуд": ["лоратадин", "супрастин", "цетиризин"],
-    "кашл": ["амброксол", "лазолван", "ацц", "ацетилцистеин", "бромгексин", "мукалтин", "синекод", "гербион", "доктор мом"],
-    "бронхит": ["амброксол", "ацц", "бромгексин", "амоксициллин"],
-    "горл": ["стрепсилс", "граммидин", "септолете", "гексорал", "лизобакт", "тантум", "мирамистин", "фурацилин"],
-    "ангин": ["амоксициллин", "стрепсилс", "гексорал", "мирамистин", "граммидин"],
-    "нос": ["ксилометазолин", "оксиметазолин", "називин", "тизин", "отривин", "сноп", "аква марис", "пиносол"],
-    "насморк": ["ксилометазолин", "оксиметазолин", "називин", "тизин", "отривин", "сноп"],
-    "сопл": ["ксилометазолин", "називин", "тизин", "сноп"],
-    "успоко": ["валериана", "пустырник", "корвалол", "валидол", "глицин", "ново пассит", "афобазол"],
-    "сон": ["валериана", "пустырник", "мелатонин", "глицин", "корвалол"],
-    "стресс": ["афобазол", "ново пассит", "глицин", "магний в6", "валериана"],
-    "сердц": ["валидол", "корвалол", "нитроглицерин", "кардиомагнил", "аспаркам"],
-    "печен": ["эссенциале", "карсил", "урсосан", "урсодезоксихолевая", "гептрал"],
-    "антибиот": ["амоксициллин", "азитромицин", "цефтриаксон", "клавокси", "левофлоксацин"],
-    "витамин": ["аскорбиновая кислота", "витамин с", "пиковит", "компливит", "супрадин"],
-    "диаре": ["лоперамид", "имодиум", "смекта", "регидрон", "энтерол", "полисорб"],
-    "понос": ["лоперамид", "имодиум", "смекта", "регидрон"]
+    "грипп": ["парацетамол", "ибупрофен", "терафлю", "колдрекс", "фервекс"],
+    "простуд": ["парацетамол", "ибупрофен", "терафлю", "колдрекс", "фервекс"],
+    "орви": ["парацетамол", "ибупрофен"],
+    "температур": ["парацетамол", "ибупрофен"],
+    "жар": ["парацетамол", "ибупрофен"],
+    "бол": ["парацетамол", "ибупрофен", "нурофен", "цитрамон", "но шпа", "дротаверин"],
+    "голов": ["парацетамол", "ибупрофен", "цитрамон"],
+    "живот": ["но шпа", "дротаверин", "эспумизан", "смектит"],
+    "изжог": ["алмагель", "ренни", "маалокс"],
+    "спазм": ["но шпа", "дротаверин"],
+    "вздут": ["эспумизан"],
+    "пищевар": ["мезим", "панкреатин"],
+    "аллерг": ["лоратадин", "цетиризин", "дезлоратадин"],
+    "зуд": ["лоратадин", "цетиризин"],
+    "кашл": ["амброксол", "лазолван", "ацетилцистеин", "бромгексин", "мукалтин"],
+    "мокрот": ["амброксол", "ацетилцистеин", "бромгексин"],
+    "горл": ["стрепсилс", "граммидин", "септолете", "гексорал", "лизобакт", "тантум"],
+    "насморк": ["ксилометазолин", "оксиметазолин", "називин", "отривин", "аква марис"],
+    "сопл": ["ксилометазолин", "називин", "аква марис"],
+    "заложен": ["ксилометазолин", "оксиметазолин", "називин", "отривин"],
+    "диаре": ["смектит", "энтерол"],
+    "понос": ["смектит", "энтерол"],
+    "успоко": ["валериана", "пустырник", "глицин"],
+    "нерв": ["валериана", "пустырник", "глицин"],
+    "витамин": ["аскорбиновая кислота", "компливит", "супрадин"]
   };
-
+  const symptomKeys = (v) => {
+    const words = v.split(" ");
+    const keys = Object.keys(INDICATIONS).filter((k) => words.some((w) => w.startsWith(k)));
+    // «болит горло» — это про горло, а не про обезболивающие вообще
+    return keys.length > 1 ? keys.filter((k) => k !== "бол") : keys;
+  };
+  // Уколы, капельницы и вагинальные формы в подсказки по симптомам не попадают
+  const NOT_SELF_CARE = /инъек|инфуз|д\/инф|внутривен|внутримыш|в\/в|в\/м|ампул|парентер|вагин|концентрат/;
+  let lastSymptomSearch = false;
   function search(q) {
+    lastSymptomSearch = false;
     if (!ROWS) return [];
     const raw = q.trim();
     if (!raw) return [];
@@ -139,12 +140,12 @@
 
     // 1. Умный поиск по симптомам / описанию («таблетки от гриппа», «от давления»)
     const targetKws = new Set();
-    for (const [k, arr] of Object.entries(INDICATIONS)) {
-      if (v1.includes(k)) for (const w of arr) targetKws.add(w);
-    }
+    for (const k of symptomKeys(v1)) for (const w of INDICATIONS[k]) targetKws.add(w);
+    lastSymptomSearch = targetKws.size > 0;
     const wantsForm = formOf(v1);
     if (targetKws.size) {
       for (const r of ROWS) {
+        if (NOT_SELF_CARE.test(`${r.form || ""} ${r.sub || ""}`.toLowerCase())) continue;
         for (const kw of targetKws) {
           if (r.n.includes(kw) || (r.m && r.m.includes(kw))) {
             let s = 70;
@@ -621,7 +622,7 @@
       return;
     }
     const word = plural(all.length, "препарат", "препарата", "препаратов");
-    meta.innerHTML = q ? `Найдено <b>${fmt(all.length)}</b> ${word}${shelf ? ` в разделе «${esc(shelf.title)}»` : ""}` : `<b>${fmt(all.length)}</b> ${word} · ${fmt(all.filter((r) => r.img >= 0).length)} с фото`;
+    meta.innerHTML = q ? `Найдено <b>${fmt(all.length)}</b> ${word}${shelf ? ` в разделе «${esc(shelf.title)}»` : ""}${lastSymptomSearch ? `<span class="note warnline" style="margin-top:12px">${icon("info")}<span>По симптому показаны безрецептурные средства — только для справки. Что подходит именно вам, подскажет фармацевт или врач. Если плохо прямо сейчас — 103.</span></span>` : ""}` : `<b>${fmt(all.length)}</b> ${word} · ${fmt(all.filter((r) => r.img >= 0).length)} с фото`;
     const grid = !q;
     out.className = grid ? "results grid" : "results";
     const render = grid ? productCard : (r) => resultItem(r, q);
@@ -728,10 +729,10 @@
         <div class="stack-24">
           <section class="card buy" aria-labelledby="buy-title">
             <h2 class="title-1" id="buy-title">Где купить</h2>
-            <p class="caption-1 muted">Наличие и цены по аптекам Бишкека — на apteki.kg. Маршрут до аптеки построим в 2ГИС, Google или Яндекс Картах.</p>
+            <div class="buy-sum" data-buy-sum aria-live="polite"><span class="sk sk-line" style="width:70%"></span></div>
+            <p class="caption-1 muted">На карте — аптеки Бишкека, где оно есть, и цены, сначала дешевле. Маршрут — в 2ГИС, Google или Яндекс Картах.</p>
             <div class="row">
-              <a class="btn btn-primary" href="${aptekiUrl(r)}" target="_blank" rel="noopener">${icon("store")}Проверить наличие</a>
-              <a class="btn btn-ghost" href="#apteki-${i}">${icon("map")}Аптеки на карте</a>
+              <a class="btn btn-primary" href="#apteki-${i}">${icon("map")}Где есть и почём</a>
             </div>
           </section>
           <section class="card-soft stack-16" aria-labelledby="memo-title">
@@ -765,11 +766,31 @@
     $("[data-kit-toggle]", box).addEventListener("click", (e) => { const on = toggleKit(r); const b = e.currentTarget; b.className = `btn ${on ? "btn-soft" : "btn-primary"}`; b.innerHTML = `${icon(on ? "check" : "plus")}<span>${on ? "В аптечке" : "В мою аптечку"}</span>`; });
     $("[data-copy-link]", box).addEventListener("click", async () => { try { await navigator.clipboard.writeText(location.href); toast("Ссылка скопирована", "yes"); } catch { toast("Не получилось скопировать. Скопируйте адрес из строки браузера", "thinking"); } });
     $("[data-q-set]", box)?.addEventListener("click", (e) => { state.q = e.currentTarget.dataset.qSet; });
+    // Сразу показать, есть ли в аптеках и почём (справочник apteki.kg)
+    (async () => {
+      const sum = $("[data-buy-sum]", box);
+      try {
+        const res = await stockResolve(r.name || r.title, r.mnn, `${r.title} ${r.sub || ""}`);
+        if (!sum.isConnected) return;
+        if (!res.variants.length) {
+          sum.innerHTML = res.known
+            ? `<span>Есть в каталоге аптек, но цену сейчас не сообщила ни одна аптека Бишкека.</span><br><span class="caption-1 muted">Позвоните в ближайшую — номера на карте.</span>`
+            : `<span class="muted">Нет в справочнике цен аптек Бишкека — возможно, продаётся только в больницах или под другим названием.</span>`;
+          return;
+        }
+        const v = res.variants[0];
+        const offers = (await stockGet({ slug: v.slug })).offers;
+        if (!sum.isConnected) return;
+        const prices = offers.map((o) => o.price).filter((x) => x != null);
+        sum.innerHTML = `${res.mode === "mnn" ? `<span class="caption-1 muted">Точно такого нет — с тем же веществом:</span><br>` : ""}<b>${esc(v.title)}</b><br>есть в <b>${offers.length}</b> ${plural(offers.length, "аптеке", "аптеках", "аптеках")}${prices.length ? `, от <b class="buy-price">${som(Math.min(...prices))}</b>` : ""}`;
+      } catch { if (sum.isConnected) sum.innerHTML = `<span class="muted">Цены сейчас не загрузились — откройте карту, попробуем ещё раз.</span>`; }
+    })();
   }
 
 
   /* ================= аптеки на карте ================= */
   // Поиск на apteki.kg: по короткому торговому названию — так находится больше предложений.
+  // (старый переход на apteki.kg больше не используется — цены показываем сами)
   const aptekiUrl = (r) => `https://apteki.kg/search?q=${encodeURIComponent((r.name || r.title || "").split(/[,(]/)[0].trim())}`;
   const CITY = [42.8746, 74.5698];
   const routeUrl = (app, p) => app === "2gis" ? `https://2gis.kg/bishkek/directions/points/%7C${p.lon}%2C${p.lat}`
@@ -816,6 +837,7 @@
     return bits.join(" · ") || "Адрес уточните в 2ГИС";
   }
   function renderPharmList() {
+    if (st.q) return stockList(); // режим «где купить»: список цен
     const items = pharmItems(), shown = items.slice(0, 60);
     $("[data-pharm-meta]").textContent = items.length
       ? `${ph.me ? "Ближе всего к вам" : "Найдено"}: ${items.length} ${plural(items.length, "аптека", "аптеки", "аптек")}${items.length > shown.length ? ` · показаны первые ${shown.length}` : ""}`
@@ -853,14 +875,226 @@
     renderPharmList();
     if (!fly || innerWidth >= 900) $(`[data-ph="${i}"]`)?.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }
+  // ---------- где купить: наличие и цены (справочник apteki.kg через функцию serpu-stock) ----------
+  const stockQueryOf = (name) => {
+    const q = String(name || "").split(/[,(]/)[0].replace(/®/g, "").trim();
+    return /[a-z]/i.test(q) && !/[а-яё]/i.test(q) ? translit(q.toLowerCase()) : q; // справочник понимает только кириллицу
+  };
+  const stockCache = new Map();
+  async function stockGet(params) {
+    const key = JSON.stringify(params);
+    if (stockCache.has(key)) return stockCache.get(key);
+    if (params.slug && params.slug.startsWith("local:")) {
+      return { ok: true, title: "", offers: [], source: "Выгрузка сети аптек Бишкека" };
+    }
+    const r = await fetch(`${C.supabaseUrl}/functions/v1/serpu-stock?${new URLSearchParams(params)}`, { headers: { apikey: C.publishableKey } });
+    const j = await r.json().catch(() => ({ ok: false }));
+    if (!j.ok) throw new Error(j.error || "Справочник цен сейчас недоступен");
+    stockCache.set(key, j);
+    return j;
+  }
+  const som = (p) => `${Number.isInteger(p) ? p : p.toFixed(2)} сом`;
+  const st = { q: "", mode: "name", variants: [], variant: null, offers: null, loading: false, error: "", layer: null, markers: [] };
+  const offerTitle = (o) => o.chain && !o.pharmacy.includes(o.chain) ? `${o.chain} · ${o.pharmacy}` : o.pharmacy;
+  const offerPopup = (o) => `<div class="ph-name">${esc(offerTitle(o))}</div><div class="ph-sub">${esc(o.address)}${o.hours ? ` · ${esc(o.hours)}` : ""}</div>
+    <div class="offer-price">${o.price == null ? "Цена уточняется" : som(o.price)}${o.status ? ` <span>${esc(o.status)}</span>` : ""}</div>
+    ${o.lat != null ? routeBtns({ lat: o.lat, lon: o.lon, p: o.phone }) : ""}
+    ${o.buyUrl ? `<a class="btn btn-ghost btn-sm" style="margin-top:6px" target="_blank" rel="noopener" href="${esc(o.buyUrl)}">${icon("store")}Заказать на сайте аптеки</a>` : ""}`;
+  function stockBanner() {
+    const box = $("[data-pharm-drug]");
+    if (!st.q) {
+      box.innerHTML = `<form class="pharm-find" data-stock-form><label class="searchbar"><svg><use href="#i-pill"/></svg><input type="search" name="q" placeholder="Где купить лекарство? Например, ибупрофен" aria-label="Лекарство" autocomplete="off"></label><button class="btn btn-primary" type="submit">${icon("search")}Найти</button></form>`;
+      return;
+    }
+    const head = st.loading ? `<span>Ищу <b>${esc(st.q)}</b> по аптекам Бишкека…</span>`
+      : st.error ? `<span>${esc(st.error)}</span>`
+      : st.offers ? `<span>${st.mode === "mnn" ? `Точно «${esc(st.q)}» нет в справочнике — показываю с тем же действующим веществом: ` : ""}<b>${esc(st.variant?.title || st.q)}</b> — есть в ${st.offers.length} ${plural(st.offers.length, "аптеке", "аптеках", "аптеках")}${st.offers[0]?.price != null ? `, от <b>${som(st.offers[0].price)}</b>` : ""}</span>` : "";
+    box.innerHTML = `<div class="pharm-drug">${head}<button class="btn btn-ghost btn-sm" type="button" data-stock-clear>${icon("close")}Все аптеки</button></div>
+      ${st.variants.length > 1 ? `<div class="chips scroll" style="margin-top:10px">${st.variants.slice(0, 8).map((v, k) => `<button class="chip" type="button" data-stock-v="${k}" aria-pressed="${v === st.variant}">${esc(v.title)}${v.minPrice != null ? ` · от ${som(v.minPrice)}` : ""}</button>`).join("")}</div>` : ""}
+      <p class="caption-5 faint" style="margin-top:8px">Цены и наличие справочные (apteki.kg), обновляются с сайтов аптек. Перед поездкой лучше позвонить в аптеку.</p>`;
+  }
+  function stockList() {
+    const offers = st.offers || [];
+    const rows = offers.map((o, k) => ({ o, k, d: ph.me && o.lat != null ? km(ph.me, [o.lat, o.lon]) : null }));
+    if (ph.me) rows.sort((a, b) => (a.o.price ?? 1e9) - (b.o.price ?? 1e9) || (a.d ?? 1e9) - (b.d ?? 1e9));
+    $("[data-pharm-meta]").textContent = st.loading ? "Ищу…" : offers.length ? "Сначала дешевле. Нажмите на аптеку — цена, маршрут, звонок." : "";
+    $("[data-pharm-list]").innerHTML = rows.map(({ o, k, d }) => `
+      <div class="ph" data-offer="${k}">
+        <button class="ph-head" type="button" data-offer-go="${k}">
+          <span class="ph-ico">${icon("store")}</span>
+          <span style="min-width:0"><span class="ph-name">${esc(offerTitle(o))}</span><br><span class="ph-sub">${esc(o.address)}${d != null ? ` · ${kmText(d)}` : ""}</span></span>
+          <span class="ph-km">${o.price == null ? "—" : som(o.price)}</span>
+        </button>
+      </div>`).join("");
+  }
+  function stockMarkers() {
+    if (!ph.map) return;
+    if (st.layer) st.layer.remove();
+    const showAll = !st.q;
+    ph.markers.forEach((m) => { if (!m) return; if (showAll && !ph.map.hasLayer(m)) m.addTo(ph.map); if (!showAll && ph.map.hasLayer(m)) m.remove(); });
+    if (showAll || !st.offers) return;
+    st.layer = ph.L.layerGroup().addTo(ph.map);
+    st.markers = st.offers.map((o) => o.lat == null ? null : ph.L.marker([o.lat, o.lon], {
+      icon: ph.L.divIcon({ className: "", html: `<div class="price-pin-wrap"><div class="price-pin">${o.price == null ? "?" : som(o.price)}</div></div>`, iconSize: [84, 30], iconAnchor: [42, 15], popupAnchor: [0, -14] }),
+      title: `${offerTitle(o)} — ${o.price == null ? "цена уточняется" : som(o.price)}`, keyboard: true,
+    }).bindPopup(offerPopup(o)).addTo(st.layer));
+    const pts = st.offers.filter((o) => o.lat != null).map((o) => [o.lat, o.lon]);
+    if (pts.length) ph.map.fitBounds(pts, { padding: [30, 30], maxZoom: 15 });
+  }
+  function stockRender() {
+    stockBanner();
+    // фильтры аптек (улица, круглосуточные) в режиме «где купить» не нужны
+    $(".pharm-tools").hidden = !!st.q; $("[data-pharm-filters]").hidden = !!st.q;
+    if (st.q) stockList(); else renderPharmList();
+    stockMarkers();
+  }
+  async function stockPick(v) {
+    st.variant = v; st.offers = null; st.loading = true; st.error = ""; stockRender();
+    try {
+      const j = await stockGet({ slug: v.slug });
+      if (st.variant !== v) return;
+      st.offers = j.offers.slice().sort((a, b) => (a.price ?? 1e9) - (b.price ?? 1e9));
+      if (!st.offers.length) st.error = "Сейчас этого варианта нет в аптеках Бишкека";
+    } catch (e) { st.error = e.message; }
+    st.loading = false; stockRender();
+    if (st.offers?.length) { serpu("found"); say(`Нашёл в ${st.offers.length} ${plural(st.offers.length, "аптеке", "аптеках", "аптеках")}!`); }
+  }
+  // Подбор запроса для справочника цен: названия в реестре и в аптеках пишут по-разному
+  // («Глирайд-4, таблетки, 4 мг» → «Глирайд»). Общие слова («таблетки», «масло») запросом не бывают.
+  const STOCK_STOP = /^(таблетки|таблетка|капсулы|раствор|порошок|масло|мазь|гель|сироп|капли|спрей|витамин|витамины|вакцина|концентрат|набор|система|субстанция|лиофилизат|суспензия|крем|настойка|экстракт|сбор|чай)$/i;
+  const cleanName = (n) => String(n || "").split(/[,(]/)[0].replace(/[®™]/g, "").replace(/\s*№.*$/, "")
+    .replace(/\s+\d[\d.,]*\s*(мг|мл|г|мкг|%|ме)?(\s.*)?$/i, "").replace(/\s+/g, " ").trim().replace(/^[-\s]+|[-\s]+$/g, "");
+  function stockCandidates(name, mnn) {
+    const out = [];
+    const add = (q, mode) => { q = stockQueryOf(q); if (q.length >= 3 && !STOCK_STOP.test(q) && !out.some((c) => c.q === q)) out.push({ q, mode }); };
+    const c1 = cleanName(name); add(c1, "name");
+    const c2 = c1.replace(/[-\s]+[\wа-яё]*\d[\wа-яё]*$/i, "").replace(/\s+[a-zа-я]{1,2}r$/i, "").trim(); add(c2, "name");
+    const w = (c2 || c1).split(" ")[0]; if (w.length >= 4) add(w, "name");
+    if (w.includes("-") && w.split("-")[0].length >= 5) add(w.split("-")[0], "name");
+    if (mnn) add(cleanName(String(mnn).split("+")[0]), "mnn");
+    return out;
+  }
+  // Вариант с той же дозировкой, упаковкой и формой, что в карточке реестра
+  function scoreVariant(v, full) {
+    const t = v.title.toLowerCase(), f = String(full || "").toLowerCase();
+    let sc = Math.min(v.count, 200) / 200;
+    for (const m of f.matchAll(/(\d+[.,]?\d*)\s*(мг|мл|г|мкг|%)/g)) if (t.includes(m[1].replace(",", "."))) sc += 2;
+    const pack = f.match(/№\s*(\d+)/); if (pack && t.includes(`№${pack[1]}`)) sc += 2;
+    for (const form of ["таблетк", "капсул", "сироп", "суспенз", "мазь", "гель", "крем", "раствор", "спрей", "капли", "порошок", "свеч", "суппозит"]) if (f.includes(form) && t.includes(form)) sc += 1.5;
+    return sc;
+  }
+  // Найти лекарство в справочнике цен: по названию, потом по действующему веществу (с пометкой)
+  async function stockResolve(name, mnn, full) {
+    let known = null; // есть в каталоге apteki.kg, но ни одна аптека не сообщила цену
+    for (const c of stockCandidates(name, mnn)) {
+      let items;
+      try { items = (await stockGet({ q: c.q })).items; } catch (e) { throw e; }
+      const word = c.q.split(" ")[0].toLowerCase().slice(0, 6);
+      const same = items.filter((x) => x.title.toLowerCase().includes(word));
+      const ok = same.filter((x) => x.count > 0);
+      if (ok.length) return { q: c.q, mode: c.mode, variants: ok.sort((a, b) => scoreVariant(b, full) - scoreVariant(a, full)) };
+      if (same.length && c.mode === "name") known = known || same[0].title;
+    }
+    // Если в apteki.kg нет цен — ищем в локальной базе аптек Бишкека (pharmacies.json)
+    const local = await resolveLocalStock(name, mnn);
+    if (local) return local;
+
+    return { q: cleanName(name), mode: null, variants: [], known };
+  }
+  async function resolveLocalStock(name, mnn) {
+    try {
+      if (!ph.list) {
+        ph.list = (await (await fetch("data/pharmacies.json")).json()).map((p) => ({ ...p, n: cap(p.n.replace(/^["«„']+|["»“']+$/g, "").trim() || "Аптека") }));
+      }
+      if (!ph.list || !ph.list.length) return null;
+      for (const c of stockCandidates(name, mnn)) {
+        const queryWord = c.q.toLowerCase().trim();
+        if (queryWord.length < 3) continue;
+        const matchingOffers = [];
+        let bestTitle = "";
+        let minP = Infinity;
+        for (const p of ph.list) {
+          for (const m of (p.meds || [])) {
+            const medName = (m.n || "").toLowerCase();
+            if (medName.includes(queryWord)) {
+              if (!bestTitle) bestTitle = m.n;
+              const numMatch = String(m.p || "").match(/\d+([.,]\d+)?/);
+              const parsedP = numMatch ? parseFloat(numMatch[0].replace(",", ".")) : null;
+              if (parsedP != null && parsedP < minP) minP = parsedP;
+              matchingOffers.push({
+                pharmacy: p.n,
+                chain: p.net || "Лекарь",
+                address: p.a || "",
+                price: parsedP,
+                status: m.q || "в наличии",
+                lat: p.lat,
+                lon: p.lon,
+                phone: p.p || "",
+                hours: p.h || (p.is24 ? "круглосуточно" : ""),
+                buyUrl: null
+              });
+            }
+          }
+        }
+        if (matchingOffers.length) {
+          matchingOffers.sort((a, b) => (a.price ?? 1e9) - (b.price ?? 1e9));
+          const slug = `local:${encodeURIComponent(c.q)}`;
+          const title = bestTitle || c.q;
+          const minPrice = Number.isFinite(minP) ? minP : null;
+          const item = {
+            slug,
+            title,
+            mnn: mnn || "",
+            minPrice,
+            count: matchingOffers.length,
+            img: null
+          };
+          stockCache.set(JSON.stringify({ slug }), { ok: true, title, offers: matchingOffers, source: "Выгрузка сети аптек Бишкека" });
+          return { q: c.q, mode: c.mode || "local", variants: [item] };
+        }
+      }
+    } catch (_) {}
+    return null;
+  }
+  async function stockFind(name, mnn = "", full = "") {
+    const label = cleanName(name) || stockQueryOf(name);
+    if (label.length < 2) return;
+    Object.assign(st, { q: label, mode: "name", variants: [], variant: null, offers: null, loading: true, error: "" });
+    stockRender();
+    try {
+      const r = await stockResolve(name, mnn, full || name);
+      if (st.q !== label) return;
+      st.variants = r.variants; st.mode = r.mode;
+      if (!r.variants.length) {
+        st.loading = false;
+        st.error = r.known ? `«${label}»: Есть в каталоге аптек, но цену сейчас не сообщила ни одна аптека Бишкека. Позвоните в ближайшую — на карте все аптеки с телефонами.` : `«${label}» нет в справочнике цен аптек Бишкека — возможно, продаётся только в больницах или под другим названием. Уточните в ближайшей аптеке.`;
+        // цен нет — оставляем на карте все аптеки, чтобы можно было позвонить
+        st.q = ""; stockRender(); $("[data-pharm-drug]").insertAdjacentHTML("afterbegin", `<div class="pharm-drug" style="margin-bottom:12px"><span>${esc(st.error)}</span></div>`); return;
+      }
+      await stockPick(r.variants[0]);
+    } catch (e) { st.loading = false; st.error = e.message; stockRender(); }
+  }
+  function stockClear() { Object.assign(st, { q: "", variants: [], variant: null, offers: null, loading: false, error: "" }); if (location.hash !== "#apteki") history.replaceState(null, "", "#apteki"); stockRender(); }
+  $("[data-pharm-drug]")?.addEventListener("submit", (e) => { if (e.target.matches("[data-stock-form]")) { e.preventDefault(); stockFind(e.target.q.value); } });
+  $("[data-pharm-drug]")?.addEventListener("click", (e) => {
+    if (e.target.closest("[data-stock-clear]")) return stockClear();
+    const v = e.target.closest("[data-stock-v]"); if (v) stockPick(st.variants[+v.dataset.stockV]);
+  });
+  $("[data-pharm-list]")?.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-offer-go]"); if (!b) return;
+    const k = +b.dataset.offerGo, o = st.offers[k], m = st.markers[k];
+    if (m && ph.map) {
+      ph.map.closePopup(); ph.map.once("moveend", () => m.openPopup()); ph.map.flyTo([o.lat, o.lon], 16, { duration: 0.6 });
+      if (innerWidth < 900) { const box = $("[data-pharm-map]"); window.scrollTo({ top: box.getBoundingClientRect().top + scrollY - 88, behavior: "smooth" }); }
+    }
+  });
+
   async function renderPharm(drugIdx) {
     ph.drug = drugIdx ?? null;
-    const banner = $("[data-pharm-drug]");
-    banner.innerHTML = "";
+    let drugRow = null;
     if (ph.drug != null) {
       if (!ROWS) await dataReady;
-      const r = ROWS[ph.drug];
-      if (r) banner.innerHTML = `<div class="pharm-drug"><span>Ищете <b>${esc(r.title)}</b>? Наличие и цены по аптекам Бишкека — на apteki.kg.</span><a class="btn btn-primary btn-sm" href="${aptekiUrl(r)}" target="_blank" rel="noopener">${icon("store")}Проверить наличие</a></div>`;
+      drugRow = ROWS[ph.drug] || null;
     }
     if (!ph.list) {
       try { ph.list = (await (await fetch("data/pharmacies.json")).json()).map((p) => ({ ...p, n: cap(p.n.replace(/^["«„']+|["»“']+$/g, "").trim() || "Аптека") })); } catch { $("[data-pharm-meta]").textContent = "Не удалось загрузить список аптек. Обновите страницу."; return; }
@@ -880,7 +1114,9 @@
       }
     }
     if (ph.map) setTimeout(() => ph.map.invalidateSize(), 50);
-    renderPharmList();
+    if (drugRow) stockFind(drugRow.name || drugRow.title, drugRow.mnn, `${drugRow.title} ${drugRow.sub || ""}`);
+    else if (!st.q) stockRender();
+    else stockRender();
   }
   if (!$("[data-pharm-list]")) console.warn("pharm view missing");
   else {
